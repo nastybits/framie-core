@@ -1,0 +1,32 @@
+{
+    "name": "nastybits/framie-core",
+    "type": "library",
+    "description": "Core of Framie library",
+    "keywords": [
+        "nastybits",
+        "framie"
+    ],
+    "homepage": "https://github.com/nastybits/framie-core",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Podosenov Dmitry",
+            "email": "screamie@yandex.ru",
+            "homepage": "http://nastybits.ru",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php" : ">=7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "nastybits\\framie\\": ""
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}
