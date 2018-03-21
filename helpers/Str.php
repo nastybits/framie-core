@@ -11,7 +11,6 @@
 
 namespace nastybits\framie\helpers;
 
-
 class Str
 {
     public static function ucfirst($str)

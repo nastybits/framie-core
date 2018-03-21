@@ -10,7 +10,6 @@
 
 namespace nastybits\framie\base;
 
-
 class FatalException extends \Exception
 {
     public $message = 'FATAL ERROR';
@@ -18,7 +17,8 @@ class FatalException extends \Exception
     /**
      *
      */
-    public function getError(){
+    public function getError()
+    {
         return parent::getMessage();
     }
 }

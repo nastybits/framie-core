@@ -13,12 +13,11 @@ class AssetManager
 
     public function __construct()
     {
-        if(array_key_exists('path', Framie::$app->config['assets'])) {
+        if (array_key_exists('path', Framie::$app->config['assets'])) {
             $this->_path = Framie::$app->config['assets']['path'];
         } else {
             $this->_path = '/assets/';
         }
-
     }
 
     /**
@@ -29,12 +28,9 @@ class AssetManager
         $this->js = Framie::$app->config['assets']['js'];
 
         foreach ($this->js as $js) {
-
             if (!is_array($js)) {
-
                 $path = preg_match('/^(https?).*/', $js) ? $js : $this->_path . $js;
                 echo "<script src='" . $path . "'></script>";
-
             } else {
                 $path = preg_match('/^(https?).*/', $js[0]) ? $js[0] : $this->_path . $js[0];
                 $src = "src='" . $path . "'></script>";
@@ -86,16 +82,14 @@ class AssetManager
         $res = [];
 
         foreach ($array as $key => $val) {
-
             if (is_array($val)) {
-
-                if (Framie::$app->view->layout !== $key)
+                if (Framie::$app->view->layout !== $key) {
                     continue;
+                }
 
                 foreach ($val as $v) {
                     $res[] = $v;
                 }
-
             } else {
                 $res[] = $val;
             }

@@ -10,7 +10,6 @@
 
 namespace nastybits\framie\console;
 
-
 use ReflectionMethod;
 
 class BaseConsole
@@ -67,7 +66,8 @@ class BaseConsole
      * @param $str
      * @return string
      */
-    private function setIndent($str){
+    private function setIndent($str)
+    {
         $indent = ' ';
         $i = self::$indent - strlen($str);
 

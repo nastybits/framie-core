@@ -33,8 +33,9 @@ class AppConsole extends BaseConsole
      */
     public function __construct(array $config, array $request, $len)
     {
-        if (self::$app === null)
+        if (self::$app === null) {
             self::$app = $this;
+        }
 
         if ($len > 1) {
             array_shift($request);
@@ -70,9 +71,8 @@ class AppConsole extends BaseConsole
         if (method_exists($class, $action)) {
             $class->{$action}();
         } else {
-            die ('Application can not handle you request and will be closed! Type --help to see available commands');
+            die('Application can not handle you request and will be closed! Type --help to see available commands');
         }
-
     }
 
     /**

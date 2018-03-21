@@ -99,7 +99,7 @@ class View
      */
     public function renderPage($view = null, array $vars = []) : string
     {
-        if($view === null) {
+        if ($view === null) {
             $view = $this->view;
         }
 

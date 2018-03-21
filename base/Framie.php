@@ -29,7 +29,9 @@ class Framie
     /**
      * Framie constructor.
      */
-    private function __construct(){}
+    private function __construct()
+    {
+    }
 
     /**
      * App constructor.
@@ -39,14 +41,13 @@ class Framie
      */
     public static function instance($config, $params)
     {
-        if (self::$app === null)
+        if (self::$app === null) {
             self::$app = new self;
+        }
 
         try {
-
             self::$app->setAppConfig($config);
             self::$app->setAppParams($params);
-
         } catch (FatalException $e) {
             die($e->getError());
         } catch (\Exception $e) {
@@ -120,20 +121,18 @@ class Framie
         $output = null;
 
         try {
-
             self::$app->request  = new Request($_REQUEST);
             self::$app->view     = new View(self::$app->request, self::$app->config);
             self::$app->assets   = new AssetManager();
 
             $output = self::$app->view->renderPage();
-
         } catch (NotFoundHttpException $e) {
             $output = $e->getError();
-        } catch (InvalidConfigException $e){
+        } catch (InvalidConfigException $e) {
             $output = $e->getError();
         } catch (BaseException $e) {
             $output = $e->getError();
-        } catch (FatalException $e){
+        } catch (FatalException $e) {
             $output = $e->getError();
         } catch (\Exception $e) {
             $output = $e->getMessage();

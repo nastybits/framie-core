@@ -10,7 +10,6 @@
 
 namespace nastybits\framie\base;
 
-
 class InvalidConfigException extends BaseException
 {
 

@@ -10,8 +10,8 @@
 
 
 /**
- * @var $this \nastybits\framie\View
- * @var $error \nastybits\framie\exceptions\BaseException
+ * @var $this nastybits\framie\base\View
+ * @var $error nastybits\framie\base\BaseException
  * @var $class string
  */
 

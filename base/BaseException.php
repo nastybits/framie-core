@@ -30,7 +30,7 @@ class BaseException extends \Exception
     public function getError()
     {
         if (ENV === 'dev') {
-          return $this->getErrorTrace();
+            return $this->getErrorTrace();
         }
 
         /** @var $view View */
@@ -45,7 +45,6 @@ class BaseException extends \Exception
             'code' => $this->shortCode,
             'message' => $this->shortMessage
         ]);
-
     }
 
     /**

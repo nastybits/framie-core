@@ -1,5 +1,4 @@
 <?php
-
 /**
  * This file is a part of the Framie.
  *
@@ -9,9 +8,12 @@
  * @license http://framie.ru/license/
  */
 
-namespace nastybits\framie\helpers;
 
-class Url
-{
+/**
+ * @var $this nastybits\framie\base\View
+ * @var $error nastybits\framie\base\BaseException
+ * @var $class string
+ */
 
-}
+?>
+<h2>Error!</h2>

@@ -11,7 +11,6 @@
 
 namespace nastybits\framie\helpers;
 
-
 class Html
 {
     /**
@@ -24,15 +23,13 @@ class Html
         $string = "<ul ". self::getOptions($options)." >";
 
         foreach ($list as $item) {
-
             $string .= "<li><a href='{$item['url']}'>{$item['title']}</a>";
 
-            if(array_key_exists('ul', $item)) {
+            if (array_key_exists('ul', $item)) {
                 $string .= self::ul($item['ul'], []);
             }
 
             $string .= "</li> \n";
-
         }
 
 
@@ -93,7 +90,6 @@ class Html
         $string = '';
 
         if (!empty($options)) {
-
             foreach ($options as $attr => $val) {
                 $string .= "$attr=\"$val\" ";
             }
