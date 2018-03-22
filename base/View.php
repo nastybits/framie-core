@@ -10,6 +10,8 @@
 
 namespace nastybits\framie\base;
 
+use Psr\Http\Message\ServerRequestInterface;
+
 /**
  * Class View
  * @package nastybits\framie
@@ -26,12 +28,12 @@ class View
 
     /**
      * View constructor.
-     * @param Request $request
+     * @param ServerRequestInterface $request
      * @param array $config
      */
-    public function __construct(Request $request, $config)
+    public function __construct(ServerRequestInterface $request, $config)
     {
-        $this->view = self::VIEW_PATH . $request->pathInfo;
+        $this->view = self::VIEW_PATH . $request->getUri()->getPath();
     }
 
     /**
@@ -104,15 +106,6 @@ class View
         }
 
         $content = $this->render($view, $vars);
-
-        if (Framie::$app->request->isAjax) {
-            return json_encode([
-                'content' => $content,
-                'title' => $this->title,
-                'params' => $this->params,
-                'meta' => $this->meta,
-            ]);
-        }
 
         return $this->render($this->getLayout(), [
             'content' => $content

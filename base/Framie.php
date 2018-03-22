@@ -10,6 +10,10 @@
 
 namespace nastybits\framie\base;
 
+use Zend\Diactoros\Response\HtmlResponse;
+use Zend\Diactoros\Response\SapiEmitter;
+use Zend\Diactoros\ServerRequestFactory;
+
 /**
  * Class Framie
  * @package nastybits\framie
@@ -121,7 +125,7 @@ class Framie
         $output = null;
 
         try {
-            self::$app->request  = new Request($_REQUEST);
+            self::$app->request  = ServerRequestFactory::fromGlobals();
             self::$app->view     = new View(self::$app->request, self::$app->config);
             self::$app->assets   = new AssetManager();
 
@@ -138,6 +142,9 @@ class Framie
             $output = $e->getMessage();
         }
 
-        exit($output);
+        self::$app->response = new HtmlResponse($output);
+
+        $emitter = new SapiEmitter();
+        $emitter->emit(self::$app->response);
     }
 }
